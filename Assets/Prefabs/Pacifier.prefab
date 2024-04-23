@@ -348,6 +348,7 @@ GameObject:
   - component: {fileID: 3929888205304377802}
   - component: {fileID: 5359218256615635582}
   - component: {fileID: 6019507653039380875}
+  - component: {fileID: 5730294795729556934}
   m_Layer: 3
   m_Name: Pacifier
   m_TagString: Player
@@ -495,6 +496,14 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3.89, y: 4.34, z: 4.28}
   m_Center: {x: 0.008006564, y: 0.87274486, z: 0}
+--- !u!81 &5730294795729556934
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4358402333725863425}
+  m_Enabled: 1
 --- !u!1 &5377902860151279887
 GameObject:
   m_ObjectHideFlags: 3
@@ -599,7 +608,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5962369098053330597}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.033814255, y: 0.9167582, z: -0.07948778, w: 0.3899907}
+  m_LocalRotation: {x: 0.033814255, y: 0.9167582, z: -0.07948777, w: 0.3899907}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

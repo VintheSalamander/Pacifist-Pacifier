@@ -6,6 +6,7 @@ public class AudioController : MonoBehaviour
 {
     public BeatController beatController;
     public GameObject musicMinigame;
+    public AudioSource babyCrying;
     public static AudioController instance;
     private Human controllingHuman;
     private AudioSource music;
@@ -33,18 +34,28 @@ public class AudioController : MonoBehaviour
     }
 
     public void StartMusic(){
-        beatController.StartScroll();
+        if(controllingHuman.name == "MomBaby"){
+            beatController.StartScroll(1);
+        }else{
+            beatController.StartScroll(0);
+        }
         musicMinigame.SetActive(true);
         music.Play();
     }
 
     public void StopMusic(){
-        music.Stop();
-        musicMinigame.SetActive(false);
+        if(music){
+            music.Stop();
+            musicMinigame.SetActive(false);
 
-        if(controllingHuman){
-            controllingHuman.DeactivateHuman(-5f);
+            if(controllingHuman){
+                controllingHuman.DeactivateHuman(-5f);
+            }
+            beatController.StopScroll();
         }
-        beatController.StopScroll();
+    }
+
+    public void StopBabyCry(){
+        babyCrying.Stop();
     }
 }

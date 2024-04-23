@@ -8,9 +8,12 @@ public class BeatController : MonoBehaviour
     public float beatTempo;
     public float multiplier;
     public GameObject[] noteObjects;
+    public GameObject[] noteObjectsDifficult;
     private GameObject closestChild;
     private bool hasStarted;
     private bool generating;
+    private int currDifficulty;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -26,17 +29,31 @@ public class BeatController : MonoBehaviour
             }
             if(closestChild.GetComponent<RectTransform>().localPosition.x <= -90f && !generating){
                 generating = true;
-                int randomIndex = Random.Range(0, noteObjects.Length);
-                GameObject randomObject = noteObjects[randomIndex];
+                GameObject randomObject;
+                if(currDifficulty == 0){
+                    int randomIndex = Random.Range(0, noteObjects.Length);
+                    randomObject = noteObjects[randomIndex];
+                }else{
+                    int randomIndex = Random.Range(0, noteObjectsDifficult.Length);
+                    randomObject = noteObjectsDifficult[randomIndex];
+                }
                 closestChild = Instantiate(randomObject, transform);
                 generating = false;
             }
         }
     }
 
-    public void StartScroll(){
-        int randomIndex = Random.Range(0, noteObjects.Length);
-        GameObject randomObject = noteObjects[randomIndex];
+    public void StartScroll(int difficulty){
+        currDifficulty = difficulty;
+        GameObject randomObject;
+        if(currDifficulty == 0){
+            int randomIndex = Random.Range(0, noteObjects.Length);
+            randomObject = noteObjects[randomIndex];
+        }else{
+            int randomIndex = Random.Range(0, noteObjectsDifficult.Length);
+            randomObject = noteObjectsDifficult[randomIndex];
+        }
+        
         closestChild = Instantiate(randomObject, transform);
 
         hasStarted = true;
