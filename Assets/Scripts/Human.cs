@@ -46,17 +46,20 @@ public class Human : MonoBehaviour
     }
 
     void OnTriggerStay(Collider coll){
-        if(Input.GetKeyDown(KeyCode.E)){
+        if(Input.GetKeyDown(KeyCode.E) && AudioController.instance.controllingHuman == this){
             if(coll.gameObject.name == correctZoneName){
                 isCorrectPos = true;
                 canBeControlled = false;
                 GameController.instance.ActivatedZone();
                 AudioController.instance.StopMusic();
+                if(gameObject.name == "MomBaby"){
+                    Debug.Log("hello");
+                    Debug.Log(gameObject.name);
+                    AudioController.instance.StopBabyCry();
+                }
             }
 
-            if(gameObject.name == "MomBaby"){
-                AudioController.instance.StopBabyCry();
-            }
+            
         }
     }
 

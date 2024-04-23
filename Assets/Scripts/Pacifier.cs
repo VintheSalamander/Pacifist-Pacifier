@@ -35,9 +35,14 @@ public class Pacifier : MonoBehaviour
         }
 
         if(Input.GetKeyDown(KeyCode.E)){
-            if(coll.gameObject == firstHuman){
-                coll.GetComponent<Human>().ActivateHuman();
-                Destroy(gameObject);
+            
+            if(firstHuman){
+                Debug.Log(firstHuman.name);
+                if(coll.gameObject == firstHuman){
+                    Debug.Log(coll.gameObject.name);
+                    coll.GetComponent<Human>().ActivateHuman();
+                    Destroy(gameObject);
+                }
             }
         }
     }

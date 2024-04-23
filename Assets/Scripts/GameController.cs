@@ -23,6 +23,7 @@ public class GameController : MonoBehaviour
     }
 
     public void ActivatedZone(){
+        Debug.Log(activatedZones);
         activatedZones += 1;
         if(activatedZones == 7){
             babyZone.SetActive(true);

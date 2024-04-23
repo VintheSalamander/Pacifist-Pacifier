@@ -8,7 +8,7 @@ public class AudioController : MonoBehaviour
     public GameObject musicMinigame;
     public AudioSource babyCrying;
     public static AudioController instance;
-    private Human controllingHuman;
+    public Human controllingHuman;
     private AudioSource music;
 
     // Start is called before the first frame update
